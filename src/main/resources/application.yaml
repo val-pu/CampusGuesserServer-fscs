@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: 'CampusGuesserServer'
+  datasource:
+    username: theuser
+    password: thepassword
+    url: jdbc:postgresql://localhost:5432/campus_guesser

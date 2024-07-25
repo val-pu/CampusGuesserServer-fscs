@@ -1,0 +1,9 @@
+services:
+  database:
+    image: postgres:15-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - "POSTGRES_DB=roommate"
+      - "POSTGRES_USER=theuser"
+      - "POSTGRES_PASSWORD=thepassword"
