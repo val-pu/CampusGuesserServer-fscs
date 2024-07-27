@@ -22,6 +22,7 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+//    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui'
     runtimeOnly 'org.postgresql:postgresql'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
@@ -29,5 +30,5 @@ dependencies {
 }
 
 tasks.named('test') {
-//    useJUnitPlatform()
+    useJUnitPlatform()
 }
