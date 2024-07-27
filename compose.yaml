@@ -1,9 +1,24 @@
+
 services:
-  database:
-    image: postgres:15-alpine
-    ports:
-      - "5432:5432"
+  campus_guesser-db:
+    image: postgres
+    container_name: campus_guesser-db
+    restart: always
     environment:
-      - "POSTGRES_DB=roommate"
-      - "POSTGRES_USER=theuser"
-      - "POSTGRES_PASSWORD=thepassword"
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=thepassword
+      - POSTGRES_DB=campusguesser
+
+  campus_guesser:
+    container_name: campus_guesser
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8081:8080'
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://campus_guesser-db:5432/campusguesser
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=thepassword
+    depends_on:
+      - campus_guesser-db
