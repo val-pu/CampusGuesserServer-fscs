@@ -1,9 +1,11 @@
 package de.hhu.campusguesserserver.db
 
-import java.util.UUID
+import org.springframework.data.annotation.Id
+import java.util.*
 
 class LevelDTO(
-    val id: UUID,
+    @Id
+    val id: UUID?,
     val name: String,
     val guesses: List<GuessDTO>
 )

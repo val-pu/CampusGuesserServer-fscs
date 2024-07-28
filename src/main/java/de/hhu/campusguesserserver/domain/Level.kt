@@ -1,4 +1,6 @@
 package de.hhu.campusguesserserver.domain
 
-class Level(val name: String) {
+import java.util.*
+
+class Level(val name: String, val guesses: List<Guess>, val id: UUID? = null) {
 }
