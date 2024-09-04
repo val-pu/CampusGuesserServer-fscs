@@ -8,5 +8,5 @@ interface LevelDAO: CrudRepository<LevelDTO, UUID> {
 
     fun findByUuid(uuid: UUID): Optional<LevelDTO>
 
-    fun save(level: LevelDTO)
+    fun save(level: LevelDTO): UUID
 }
