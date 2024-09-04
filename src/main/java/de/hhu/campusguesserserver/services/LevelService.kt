@@ -1,14 +1,18 @@
 package de.hhu.campusguesserserver.services
 
 import de.hhu.campusguesserserver.domain.Level
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException
 import org.springframework.stereotype.Service
 import java.util.*
+import kotlin.jvm.optionals.getOrElse
 
 @Service
-class LevelService {
+class LevelService(
+    val levelRepository: ILevelRepository
+) {
 
-    fun getLevel(levelId: Int): Level {
-        return Level("Dummy", LinkedList())
+    fun getLevelById(levelId: UUID): Level {
+        return levelRepository.findGuessByUuid(levelId).getOrElse { throw NotFoundException() }
     }
 
 

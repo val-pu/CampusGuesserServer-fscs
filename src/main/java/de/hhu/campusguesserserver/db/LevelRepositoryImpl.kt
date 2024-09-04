@@ -8,8 +8,8 @@ import java.util.*
 @Repository
 class LevelRepositoryImpl(val levelDAO: LevelDAO) : ILevelRepository {
 
-    override fun findLevelByUuid(uuid: UUID): Optional<Level> {
-        val foundDTO = levelDAO.findByUuid(uuid)
+    override fun findGuessByUuid(uuid: UUID): Optional<Level> {
+        val foundDTO = levelDAO.findByUUUID(uuid)
 
         if (foundDTO.isEmpty) {
             return Optional.empty()

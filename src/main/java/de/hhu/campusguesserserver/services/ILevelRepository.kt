@@ -5,6 +5,6 @@ import java.util.Optional
 import java.util.UUID
 
 interface ILevelRepository {
-    fun findLevelByUuid(uuid: UUID): Optional<Level>
+    fun findGuessByUuid(uuid: UUID): Optional<Level>
     fun findAllLevels(): Set<Level>
 }

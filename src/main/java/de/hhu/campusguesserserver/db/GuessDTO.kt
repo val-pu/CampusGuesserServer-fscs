@@ -1,3 +1,6 @@
 package de.hhu.campusguesserserver.db
 
-class GuessDTO(val longtitude: Double, val latitude: Double, val imgId: String)
+import org.springframework.data.annotation.Id
+import java.util.*
+
+class GuessDTO(@Id var id: UUID?, val longtitude: Double, val latitude: Double, val imgId: String)
