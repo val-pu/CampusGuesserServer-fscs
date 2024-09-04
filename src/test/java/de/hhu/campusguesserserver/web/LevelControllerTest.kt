@@ -1,6 +1,7 @@
 package de.hhu.campusguesserserver.web
 
 import de.hhu.campusguesserserver.LevelMother
+import de.hhu.campusguesserserver.services.GuessService
 import de.hhu.campusguesserserver.services.LevelService
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
@@ -22,6 +23,9 @@ class LevelControllerTest {
 
     @MockBean
     lateinit var levelService: LevelService
+
+    @MockBean
+    lateinit var guessService: GuessService
 
     @Test
     @DisplayName("""

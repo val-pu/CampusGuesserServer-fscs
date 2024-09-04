@@ -9,7 +9,7 @@ import java.util.*
 class LevelRepositoryImpl(val levelDAO: LevelDAO) : ILevelRepository {
 
     override fun findGuessByUuid(uuid: UUID): Optional<Level> {
-        val foundDTO = levelDAO.findByUUUID(uuid)
+        val foundDTO = levelDAO.findByUuid(uuid)
 
         if (foundDTO.isEmpty) {
             return Optional.empty()
