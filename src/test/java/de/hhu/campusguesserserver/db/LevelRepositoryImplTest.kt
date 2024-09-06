@@ -18,7 +18,7 @@ class LevelRepositoryImplTest {
         val levelDAO: LevelDAO = mock()
         val emptyLevel = LevelMother.emptyLevelDTO()
         val levelID = LevelMother.emptyLevelDTO().id!!
-        whenever(levelDAO.findByUuid(levelID)).thenReturn(Optional.of(emptyLevel))
+        whenever(levelDAO.findById(levelID)).thenReturn(Optional.of(emptyLevel))
         val repository = LevelRepositoryImpl(levelDAO)
 
         val foundLevel = repository.findGuessByUuid(levelID)
@@ -50,12 +50,12 @@ class LevelRepositoryImplTest {
         val levelDAO: LevelDAO = mock()
         val emptyLevel = LevelMother.emptyLevelDTO()
         val levelID = LevelMother.emptyLevelDTO().id!!
-        whenever(levelDAO.findByUuid(levelID)).thenReturn(Optional.of(emptyLevel))
+        whenever(levelDAO.findById(levelID)).thenReturn(Optional.of(emptyLevel))
         val repository = LevelRepositoryImpl(levelDAO)
 
         val foundLevel = repository.findGuessByUuid(levelID).get()
 
-        assertThat(foundLevel.guesses).isEmpty()
+        assertThat(foundLevel.guessRefs).isEmpty()
     }
 
     @Test
@@ -66,7 +66,7 @@ class LevelRepositoryImplTest {
         val levelDAO: LevelDAO = mock()
         val emptyLevel = LevelMother.emptyLevelDTO()
         val levelID = LevelMother.emptyLevelDTO().id!!
-        whenever(levelDAO.findByUuid(levelID)).thenReturn(Optional.of(emptyLevel))
+        whenever(levelDAO.findById(levelID)).thenReturn(Optional.of(emptyLevel))
         val repository = LevelRepositoryImpl(levelDAO)
 
         val foundLevel = repository.findGuessByUuid(levelID).get()

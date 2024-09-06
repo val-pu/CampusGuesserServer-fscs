@@ -15,5 +15,13 @@ class LevelService(
         return levelRepository.findGuessByUuid(levelId).getOrElse { throw NotFoundException() }
     }
 
+    fun save(level: Level): Level {
+        return levelRepository.save(level)
+    }
+
+    fun getAllLevels(): Level {
+        TODO("Not yet implemented")
+    }
+
 
 }

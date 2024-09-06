@@ -6,9 +6,9 @@ import org.springframework.stereotype.Repository
 import java.util.*
 
 @Repository
-class GuessRepositoryImpl(val guessDAO: GuessDAO) : IGuessRepository {
+open class GuessRepositoryImpl(var guessDAO: GuessDAO? = null) : IGuessRepository {
 
     override fun findGuessById(uuid: UUID): Optional<Guess> {
-        return guessDAO.findById(uuid).map(GuessMapper::fromGuessDTO)
+        return guessDAO!!.findById(uuid).map(GuessMapper::fromGuessDTO)
     }
 }

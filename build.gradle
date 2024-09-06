@@ -22,11 +22,14 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    runtimeOnly 'org.postgresql:postgresql'
+    implementation 'org.jetbrains.kotlin:kotlin-reflect'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation "org.mockito.kotlin:mockito-kotlin:5.4.0"
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    runtimeOnly 'org.postgresql:postgresql'
+    testRuntimeOnly 'com.h2database:h2'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+    implementation 'org.flywaydb:flyway-database-postgresql'
 }
 
 tasks.named('test') {

@@ -9,8 +9,13 @@ object LevelMother {
     fun emptyLevel(): Level {
         return Level("Test1", LinkedList(), UUID.randomUUID())
     }
+
+    fun levelWithTwoRandomGuessIds(): Level {
+        return Level("Test1", listOf(UUID.randomUUID(),UUID.randomUUID()), null)
+    }
+
     fun emptyLevelDTO(): LevelDTO {
-        return LevelDTO(UUID.randomUUID(),"Test1", LinkedList())
+        return LevelDTO(UUID.randomUUID(),"Test1")
     }
 
 }

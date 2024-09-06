@@ -6,10 +6,10 @@ import org.springframework.stereotype.Repository
 import java.util.*
 
 @Repository
-class LevelRepositoryImpl(val levelDAO: LevelDAO) : ILevelRepository {
+open class LevelRepositoryImpl(val levelDAO: LevelDAO? = null) : ILevelRepository {
 
     override fun findGuessByUuid(uuid: UUID): Optional<Level> {
-        val foundDTO = levelDAO.findByUuid(uuid)
+        val foundDTO = levelDAO!!.findById(uuid)
 
         if (foundDTO.isEmpty) {
             return Optional.empty()
@@ -21,8 +21,12 @@ class LevelRepositoryImpl(val levelDAO: LevelDAO) : ILevelRepository {
     }
 
     override fun findAllLevels(): Set<Level> {
-        return levelDAO.findAll()
+        return levelDAO!!.findAll()
             .map(LevelMapper::fromLevelDTO)
             .toSet()
+    }
+
+    override fun save(level: Level): Level {
+        return LevelMapper.fromLevelDTO(levelDAO!!.save(LevelMapper.toDTO(level)))
     }
 }

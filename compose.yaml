@@ -1,13 +1,15 @@
 
 services:
   campus_guesser-db:
-    image: postgres
+    image: postgres:15-alpine
     container_name: campus_guesser-db
     restart: always
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=thepassword
       - POSTGRES_DB=campusguesser
+    volumes:
+      - "./data:/var/lib/postgresql/data"
     ports:
       - "5432:5432"
 

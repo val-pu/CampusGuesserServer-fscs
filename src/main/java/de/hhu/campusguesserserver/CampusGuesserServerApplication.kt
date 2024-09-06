@@ -9,4 +9,4 @@ fun main(args: Array<String>) {
 
 
 @SpringBootApplication
-open class CampusGuesserServerApplication { }
+open class CampusGuesserServerApplication {}

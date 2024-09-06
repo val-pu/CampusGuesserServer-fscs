@@ -1,11 +1,14 @@
 package de.hhu.campusguesserserver.db
 
 import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Table
 import java.util.*
 
+@Table("levels")
 class LevelDTO(
     @Id
-    val id: UUID?,
+    var id: UUID?,
     val name: String,
-    val guesses: List<GuessDTO>
-)
+) {
+    var guesses: List<UUID> = LinkedList()
+}
