@@ -1,6 +1,8 @@
 package de.hhu.campusguesserserver.db
 
 import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Table
 import java.util.*
 
-class GuessDTO(@Id var id: UUID?, val longtitude: Double, val latitude: Double, val imgId: String)
+@Table("guesses")
+class GuessDTO(@Id var id: UUID?, val longitude: Double, val latitude: Double)

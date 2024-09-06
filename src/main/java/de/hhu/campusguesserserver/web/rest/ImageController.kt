@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RestController
 import java.io.FileNotFoundException
-import java.util.*
 
 @RestController
 class ImageController(
@@ -20,8 +19,8 @@ class ImageController(
         "image/{uuid}",
         produces = [MediaType.IMAGE_JPEG_VALUE]
     )
-    fun getImageForId(@PathVariable uuid: UUID): ByteArray? {
-        return imageService.getImageForGuessUUID(uuid)
+    fun getImageForId(@PathVariable uuid: String): ByteArray? {
+        return imageService.getImage(uuid)
     }
 
 

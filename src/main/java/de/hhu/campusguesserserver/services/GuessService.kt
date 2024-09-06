@@ -14,6 +14,10 @@ class GuessService(val guessRepository: IGuessRepository) {
         }
     }
 
+    fun saveGuess(guess: Guess): Guess {
+        return guessRepository.save(guess)
+    }
+
     fun getAllGuesses(): List<Guess> {
         return guessRepository.findAll()
     }
