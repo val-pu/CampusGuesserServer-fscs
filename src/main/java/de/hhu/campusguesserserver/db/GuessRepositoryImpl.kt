@@ -11,4 +11,8 @@ open class GuessRepositoryImpl(var guessDAO: GuessDAO? = null) : IGuessRepositor
     override fun findGuessById(uuid: UUID): Optional<Guess> {
         return guessDAO!!.findById(uuid).map(GuessMapper::fromGuessDTO)
     }
+
+    override fun findAll(): List<Guess> {
+        return guessDAO!!.findAll().map(GuessMapper::fromGuessDTO)
+    }
 }

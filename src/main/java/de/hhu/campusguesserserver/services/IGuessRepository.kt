@@ -5,4 +5,5 @@ import java.util.*
 
 interface IGuessRepository {
     fun findGuessById(uuid: UUID): Optional<Guess>
+    fun findAll(): List<Guess>
 }

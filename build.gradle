@@ -23,6 +23,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
+    implementation 'org.apache.directory.studio:org.apache.commons.io:2.4'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation "org.mockito.kotlin:mockito-kotlin:5.4.0"
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'

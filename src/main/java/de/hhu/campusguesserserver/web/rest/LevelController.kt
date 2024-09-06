@@ -1,6 +1,5 @@
-package de.hhu.campusguesserserver.web
+package de.hhu.campusguesserserver.web.rest
 
-import de.hhu.campusguesserserver.domain.Guess
 import de.hhu.campusguesserserver.domain.Level
 import de.hhu.campusguesserserver.services.GuessService
 import de.hhu.campusguesserserver.services.LevelService
@@ -14,7 +13,6 @@ import java.util.*
 class LevelController(
     private val levelService: LevelService,
     private val guessService: GuessService,
-    service: GuessService
 ) {
 
     @GetMapping("level/all", produces = [MediaType.APPLICATION_JSON_VALUE])
@@ -25,11 +23,6 @@ class LevelController(
     @GetMapping("level", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getLevel(levelUUID: UUID): Level {
         return levelService.getLevelById(levelUUID)
-    }
-
-    @GetMapping("guess", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getGuess(guessUUID: UUID): Guess {
-        return guessService.getGuessById(guessUUID)
     }
 
     @PostMapping("submitLevel", produces = [MediaType.APPLICATION_JSON_VALUE])
