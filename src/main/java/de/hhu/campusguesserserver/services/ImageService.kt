@@ -36,13 +36,15 @@ class ImageService {
         fileEnding: String = defaultFileEnding
     ): ByteArray {
 
-        val imagePath = Path.of(imageDirectory, "$imageName$fileEnding")
+        val uploadPath = Path.of(imageDirectory)
+        val image = uploadPath.resolve("$imageName$fileEnding")
 
-        if (!Files.exists(imagePath)) {
+        if (!Files.exists(image)) {
             throw FileNotFoundException()
         }
 
-        val imageBytes = Files.readAllBytes(imagePath)
+
+        val imageBytes = Files.readAllBytes(image)
         return imageBytes
     }
 

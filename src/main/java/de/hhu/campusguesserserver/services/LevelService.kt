@@ -10,7 +10,7 @@ import kotlin.jvm.optionals.getOrElse
 class LevelService(
     val levelRepository: ILevelRepository
 ) {
-
+    @Throws(NotFoundException::class)
     fun getLevelById(levelId: UUID): Level {
         return levelRepository.findGuessByUuid(levelId).getOrElse { throw NotFoundException() }
     }

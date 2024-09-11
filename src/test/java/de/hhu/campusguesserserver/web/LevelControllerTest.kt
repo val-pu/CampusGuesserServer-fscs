@@ -3,6 +3,7 @@ package de.hhu.campusguesserserver.web
 import de.hhu.campusguesserserver.LevelMother
 import de.hhu.campusguesserserver.services.GuessService
 import de.hhu.campusguesserserver.services.LevelService
+import de.hhu.campusguesserserver.web.rest.LevelController
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.mockito.kotlin.whenever
@@ -10,12 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.mock.mockito.MockBean
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException
+import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 import java.util.*
 
 @WebMvcTest
+@ContextConfiguration(classes = [LevelController::class])
 class LevelControllerTest {
 
     @Autowired
